@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lbz-KI-re5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,7 +10,7 @@
         <!--Tinderbook-->
         <scene sceneID="DSM-C0-8Az">
             <objects>
-                <tableViewController id="1K8-KP-ac8" sceneMemberID="viewController">
+                <tableViewController id="1K8-KP-ac8" customClass="TableViewController" customModule="Tinderbook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nnH-ip-c3f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,11 +21,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="C9R-KV-gb7">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="69" id="C9R-KV-gb7" customClass="ProfileTableViewCell" customModule="Tinderbook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C9R-KV-gb7" id="CHp-7E-TPp">
-                                    <frame key="frameInset" width="375" height="68"/>
+                                    <frame key="frameInset" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDY-00-Ajs">
@@ -45,7 +45,7 @@
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
-                                                <fragment content="25">
+                                                <fragment content="26">
                                                     <attributes>
                                                         <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -72,12 +72,16 @@
                                         <constraint firstItem="dxT-qF-fDZ" firstAttribute="bottom" secondItem="CHp-7E-TPp" secondAttribute="bottomMargin" constant="-0.5" id="yrV-9c-jlT"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="TdW-Om-PXZ" id="cpz-Qu-mce"/>
+                                    <outlet property="profileImageView" destination="KDY-00-Ajs" id="TqP-nW-LYw"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="OSL-6d-bD3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendationCell" rowHeight="75" id="OSL-6d-bD3" customClass="ProfileTableViewCell" customModule="Tinderbook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="205" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OSL-6d-bD3" id="JwB-hb-sFa">
-                                    <frame key="frameInset" width="375" height="74"/>
+                                    <frame key="frameInset" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kr0-el-4KM">
@@ -127,6 +131,11 @@
                                         <constraint firstItem="Kr0-el-4KM" firstAttribute="centerY" secondItem="JwB-hb-sFa" secondAttribute="centerY" id="vXF-JE-09r"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="distanceLabel" destination="v7K-Qh-iqO" id="nIq-nI-OaY"/>
+                                    <outlet property="nameLabel" destination="WVg-qR-iPM" id="8eU-Vp-VMQ"/>
+                                    <outlet property="profileImageView" destination="Kr0-el-4KM" id="TRf-cm-teQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -136,12 +145,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Tinderbook" id="3wM-K3-1D5"/>
                     <connections>
-                        <segue destination="Msl-HI-mlr" kind="show" id="Fjk-xu-xCl"/>
+                        <segue destination="Msl-HI-mlr" kind="show" identifier="detailIdentifier" id="Fjk-xu-xCl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPZ-fi-Ujs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095.2" y="-2.2488755622188905"/>
+            <point key="canvasLocation" x="848" y="-3"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wla-Jj-Agb">
